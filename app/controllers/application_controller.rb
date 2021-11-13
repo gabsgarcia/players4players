@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     return unless current_user && request.get?
 
     path = new_profile_path unless current_user.valid?
-
+    path = dashboards_path if request.path == root.path
     redirect_to path unless path.nil? || path == request.path
   end
 end
