@@ -1,4 +1,7 @@
 require 'faker'
+require 'open-uri'
+require 'json'
+
 
 case Rails.env
     when 'development'
@@ -36,3 +39,22 @@ case Rails.env
     when 'production'
     # production seeds (if any) ...
 end
+
+puts "Cleaning up database..."
+Game.destroy_all
+puts "Database cleaned"
+
+url = "https://www.freetogame.com/api/games"
+  games = JSON.parse(open("#{url}").read)
+  games.each do |game|
+    platform = Platform.find_or_create_by(name: game['platform'])
+    puts "Creating #{game['title']}"
+    Game.create(
+      name: game['title'],
+      summary: game['short_description'],
+      thumbnail: game['thumbnail'],
+      category: game['genre'],
+      platform_id: platform.id
+    )
+  end
+puts "Games created"
