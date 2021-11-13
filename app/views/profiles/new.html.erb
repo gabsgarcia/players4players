@@ -1,0 +1,8 @@
+<%= simple_form_for @profile, url: profiles_path, method: :post do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :nickname %>
+  <%= f.input :age %>
+  <%= f.input :photo %>
+  <%= f.submit 'Complete your registration', class: "btn btn-primary btn-block"%>
+<% end %>

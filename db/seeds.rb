@@ -8,7 +8,7 @@ case Rails.env
       User.destroy_all
       puts ":reciclar: Destroyed all Users"
       puts 'Creating users...'
-
+      # file = URI.open('https://i.pravatar.cc/{size}')
       admin = User.new(
                     first_name: "Admin",
                     last_name: "Admin",
@@ -29,6 +29,7 @@ case Rails.env
                     nickname: Faker::Internet.slug(words: first_name.downcase + ' ' + last_name.downcase),
                     email: Faker::Internet.email(name: first_name.downcase + ' ' +  last_name.downcase, separators: '_'),
                     password: Faker::Internet.password(min_length: 6)
+                    # User.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
                     )
         user.save!
       end
