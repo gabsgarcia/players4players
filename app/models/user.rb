@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_many :chatrooms
   has_many :messages
 
-  validates :last_name, :first_name, :nickname, :age, presence: true
+  validates :first_name, :last_name, :nickname, :age, presence: true, on: :update
 end
