@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'dashboards/index'
   devise_for :users
 
   resources :profiles, only: %i[new create]

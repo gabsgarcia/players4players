@@ -8,7 +8,7 @@ case Rails.env
       User.destroy_all
       puts ":reciclar: Destroyed all Users"
       puts 'Creating users...'
-      file = URI.open('https://i.pravatar.cc/{size}')
+      # file = URI.open('https://i.pravatar.cc/{size}')
       admin = User.new(
                     first_name: "Admin",
                     last_name: "Admin",
