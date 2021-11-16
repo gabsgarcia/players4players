@@ -1,0 +1,15 @@
+<div class="chatroom">
+  <div class="container">
+    <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+      <% @chatroom.message.each do |message| %>
+        <%#= if @message.created_at == DataTime.now %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
+    <div class="chat">
+      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.id}" %>
+      <% end %>
+    </div>
+  </div>
+</div>
