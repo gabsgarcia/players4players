@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 2021_11_13_150830) do
   end
 
   create_table "chatrooms", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "message_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_chatrooms_on_user_id"
+    t.index ["message_id"], name: "index_chatrooms_on_message_id"
   end
 
   create_table "game_sessions", force: :cascade do |t|
@@ -49,8 +49,10 @@ ActiveRecord::Schema.define(version: 2021_11_13_150830) do
     t.time "time"
     t.bigint "user_id", null: false
     t.bigint "game_id", null: false
+    t.bigint "chatroom_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_game_sessions_on_chatroom_id"
     t.index ["game_id"], name: "index_game_sessions_on_game_id"
     t.index ["user_id"], name: "index_game_sessions_on_user_id"
   end
@@ -91,11 +93,9 @@ ActiveRecord::Schema.define(version: 2021_11_13_150830) do
 
   create_table "messages", force: :cascade do |t|
     t.string "content"
-    t.bigint "chatroom_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -122,7 +122,8 @@ ActiveRecord::Schema.define(version: 2021_11_13_150830) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "chatrooms", "users"
+  add_foreign_key "chatrooms", "messages"
+  add_foreign_key "game_sessions", "chatrooms"
   add_foreign_key "game_sessions", "games"
   add_foreign_key "game_sessions", "users"
   add_foreign_key "games", "platforms"
@@ -130,6 +131,5 @@ ActiveRecord::Schema.define(version: 2021_11_13_150830) do
   add_foreign_key "games_controllers", "platforms"
   add_foreign_key "games_lists", "games"
   add_foreign_key "games_lists", "users"
-  add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
 end
