@@ -7,7 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :games_lists, dependent: :destroy
   has_many :game_sessions, dependent: :destroy
-  has_many :chatrooms
   has_many :messages
 
   validates :first_name, :last_name, :nickname, :age, presence: true, on: :update

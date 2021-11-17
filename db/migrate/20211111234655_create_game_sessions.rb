@@ -6,6 +6,7 @@ class CreateGameSessions < ActiveRecord::Migration[6.0]
       t.time :time
       t.references :user, null: false, foreign_key: true
       t.references :game, null: false, foreign_key: true
+      t.references :chatroom, null: false, foreign_key: true
 
       t.timestamps
     end
