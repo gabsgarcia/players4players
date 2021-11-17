@@ -1,0 +1,7 @@
+<div class="container">
+  <% @chatrooms.each do |chatroom| %>
+    <%= link_to chatroom_path(chatroom) do %>
+      <i class="fas fa-comments"></i> hi
+    <% end %>
+  <% end %>
+</div>
