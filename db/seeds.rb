@@ -31,7 +31,7 @@ case Rails.env
                     age: rand(16..55),
                     nickname: Faker::Internet.slug(words: first_name.downcase + ' ' + last_name.downcase),
                     email: Faker::Internet.email(name: first_name.downcase + ' ' +  last_name.downcase, separators: '_'),
-                    password: Faker::Internet.password(min_length: 6),
+                    password: "123456",
                     )
 
         user.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
