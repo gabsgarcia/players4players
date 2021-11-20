@@ -37,10 +37,8 @@ ActiveRecord::Schema.define(version: 2021_11_20_194932) do
   end
 
   create_table "chatrooms", force: :cascade do |t|
-    t.bigint "message_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["message_id"], name: "index_chatrooms_on_message_id"
   end
 
   create_table "game_sessions", force: :cascade do |t|
@@ -105,6 +103,8 @@ ActiveRecord::Schema.define(version: 2021_11_20_194932) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "chatroom_id", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -131,7 +131,6 @@ ActiveRecord::Schema.define(version: 2021_11_20_194932) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "chatrooms", "messages"
   add_foreign_key "game_sessions", "chatrooms"
   add_foreign_key "game_sessions", "games"
   add_foreign_key "game_sessions", "users"
@@ -142,5 +141,6 @@ ActiveRecord::Schema.define(version: 2021_11_20_194932) do
   add_foreign_key "games_list_games", "games_lists"
   add_foreign_key "games_lists", "games"
   add_foreign_key "games_lists", "users"
+  add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
 end
