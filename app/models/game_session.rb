@@ -3,7 +3,7 @@ class GameSession < ApplicationRecord
   belongs_to :game
 
   has_many :games_controllers
-  has_one :chatroom
+  belongs_to :chatroom
 
-  validates :name, :date, :time, :description, presence: true
+  validates :date, :time, :description, presence: true
 end
