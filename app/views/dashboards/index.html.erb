@@ -1,2 +1,22 @@
 <h1>Your Dashboard <%= current_user.nickname %></h1>
-<p>Find me in app/views/dashboards/index.html.erb</p>
+
+<div class="container">
+  <div class="content">
+    <div class="cards">
+      <% @games.last(9).each do |game| %>
+        <div class="card-game">
+          <div class="card-body">
+            <%= link_to game_path(game) do %>
+              <% if game.thumbnail.present? %>
+                <%= image_tag game.thumbnail, width: 100, height: 100, crop: :fill %>
+              <% else %>
+                <%= image_tag "night-city.jpg", width: 100, height: 100, crop: :fill %>
+              <% end %>
+              <h5 class="card-title"><%= game.name %></h5>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

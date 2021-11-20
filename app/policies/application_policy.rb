@@ -8,12 +8,17 @@ class ApplicationPolicy
     @record = record
   end
 
+  def home?
+    true
+  end
+
+
   def index?
-    false
+    true
   end
 
   def show?
-    false
+    true
   end
 
   def create?
