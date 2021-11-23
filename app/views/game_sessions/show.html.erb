@@ -1,6 +1,9 @@
 <div class="container">
   <div class="info">
+    <span><%= @game_session.date %></span>
+    <span><%= @game_session.time %></span>
   </div>
   <div class="chatroom">
+    <%= render '/chatrooms/chatroom', chatroom: @chatroom %>
   </div>
 </div>

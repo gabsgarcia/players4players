@@ -1,12 +1,13 @@
 class GameSessionsController < ApplicationController
-before_action :set_session, only: [ :show, :edit, :destroy ]
+before_action :set_game_session, only: [ :show, :edit, :destroy ]
 
   def index
     @game_sessions = GameSession.all
   end
 
   def show
-
+    @chatroom = @game_session.chatroom
+    @message = Message.new
   end
 
   def new
