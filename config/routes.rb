@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   resources :chatrooms, only: %i[new create show index] do
     resources :messages, only: :create
   end
+
+  resources :games, only: %i[index show]
+  resources :games_lists
+  get "my_games_list", to: "games_lists#my_games_list", as: :my_games_list
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
