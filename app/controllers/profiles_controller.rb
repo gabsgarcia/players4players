@@ -1,14 +1,15 @@
 class ProfilesController < ApplicationController
   before_action :verify_policy_scoped, only: %i[edit update]
 
+
   def new
-    authorize current_user
     @profile = current_user
+    authorize @profile
   end
 
   def create
-    authorize current_user
     @profile = current_user
+    authorize @profile
     if @profile.update(user_params)
       redirect_to root_path
     else
