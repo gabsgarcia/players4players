@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = current_user
+    authorize current_user
     if @profile.update(user_params)
       redirect_to root_path
     else
