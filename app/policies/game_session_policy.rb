@@ -5,6 +5,10 @@ class GameSessionPolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    return true
+  end
+
   def update?
     user_is_owner_or_admin?
     # - record: the offer passed to the `authorize` method in controller

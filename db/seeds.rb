@@ -36,15 +36,9 @@ case Rails.env
 
         user.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
         user.save!
-<<<<<<< HEAD
-        # chat = Chatroom.new
-        # chat.user = user
-        # chat.save!
-=======
         #chat = Chatroom.new
         #chat.user = user
         #chat.save!
->>>>>>> 679c29448134e35e42203ddc4c2c0e458a5d2923
       end
     when 'test'
     # test-specific seeds ...
