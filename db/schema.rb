@@ -79,6 +79,15 @@ ActiveRecord::Schema.define(version: 2021_11_24_062412) do
     t.index ["platform_id"], name: "index_games_controllers_on_platform_id"
   end
 
+  create_table "games_list_games", force: :cascade do |t|
+    t.bigint "games_list_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_games_list_games_on_game_id"
+    t.index ["games_list_id"], name: "index_games_list_games_on_games_list_id"
+  end
+
   create_table "games_lists", force: :cascade do |t|
     t.string "name"
     t.string "category"
@@ -137,6 +146,8 @@ ActiveRecord::Schema.define(version: 2021_11_24_062412) do
   add_foreign_key "games", "platforms"
   add_foreign_key "games_controllers", "game_sessions"
   add_foreign_key "games_controllers", "platforms"
+  add_foreign_key "games_list_games", "games"
+  add_foreign_key "games_list_games", "games_lists"
   add_foreign_key "games_lists", "games"
   add_foreign_key "games_lists", "users"
   add_foreign_key "games_session_lists", "users"
