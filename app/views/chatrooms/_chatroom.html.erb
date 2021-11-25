@@ -1,12 +1,11 @@
 <div class="chatroom">
-  <h1>#<%#= @chatroom.name %></h1>
   <div class="container">
     <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% if @chatroom.messages.nil? %>
         <p>Nao tem mensages</p>
       <% else %>
         <% @chatroom.messages.each do |message| %>
-          <%#= if @message.created_at == DataTime.now %>
+        <%#= if @message.created_at == DataTime.now %>
           <%= render "messages/message", message: message %>
         <% end %>
       <% end %>

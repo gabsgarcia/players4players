@@ -29,7 +29,11 @@ before_action :set_game_session, only: [ :show, :edit, :destroy ]
   end
 
   def destroy
-
+    if @game_session.destroy
+      redirect_to game_sessions_path
+    else
+      render "destroy"
+    end
   end
 
   private
