@@ -1,6 +1,7 @@
 class GameSessionsController < ApplicationController
+
   before_action :verify_policy_scoped, only: %i[edit update]
-  before_action :set_session, only: %i[show edit destroy]
+  before_action :set_game_session, only: %i[show edit destroy]
 
   def edit
     @game_session = GameSession.find(params[:id])
@@ -15,7 +16,8 @@ class GameSessionsController < ApplicationController
   end
 
   def show
-
+    @chatroom = @game_session.chatroom
+    @message = Message.new
   end
 
   def new
@@ -38,7 +40,11 @@ class GameSessionsController < ApplicationController
   end
 
   def destroy
-
+    if @game_session.destroy
+      redirect_to game_sessions_path
+    else
+      render "destroy"
+    end
   end
 
 
