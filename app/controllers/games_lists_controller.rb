@@ -4,7 +4,7 @@ class GamesListsController < ApplicationController
   before_action :set_games_list, only: %i[show edit update destroy]
 
   def index
-    @games_lists = policy_scope(games_list).order(created_at: :desc)
+    @games_lists = policy_scope(GamesList).order(created_at: :desc)
   end
 
   def home
@@ -57,7 +57,7 @@ class GamesListsController < ApplicationController
 
 
   def games_list_params
-    params.require(:games_list).permit(:name, :category, :photo, :user_id, :game_id)
+    params.require(:games_list).permit(:name, :category, :photo, :user_id, game_ids: [])
   end
 
   def set_games_list

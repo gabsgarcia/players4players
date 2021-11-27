@@ -19,11 +19,11 @@ class GamesListPolicy < ApplicationPolicy
   end
 
   def update?
-    false
+    true
   end
 
   def destroy?
-    false
+    true
   end
 
   class Scope
