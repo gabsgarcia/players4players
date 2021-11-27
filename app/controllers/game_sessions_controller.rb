@@ -1,6 +1,5 @@
 class GameSessionsController < ApplicationController
 
-  before_action :verify_policy_scoped, only: %i[edit update]
   before_action :set_game_session, only: %i[show edit destroy]
 
   def edit
@@ -12,7 +11,7 @@ class GameSessionsController < ApplicationController
   end
 
   def index
-    @game_sessions = GameSession.all
+    @game_sessions = policy_scope(GameSession)
   end
 
   def show
@@ -31,7 +30,7 @@ class GameSessionsController < ApplicationController
     @chatroom = Chatroom.create!
     @game_session.user = current_user
     @game_session.chatroom = @chatroom
-
+    authorize @game_session
     if @game_session.save
       redirect_to game_session_path(@game_session)
     else
@@ -50,12 +49,9 @@ class GameSessionsController < ApplicationController
 
   private
 
-  def verify_policy_scoped
-    self.user_id == current_user.id
-  end
-
   def set_game_session
     @game_session = GameSession.find(params[:id])
+    authorize @game_session
   end
 
   def game_session_params

@@ -9,6 +9,10 @@ class GameSessionPolicy < ApplicationPolicy
     return true
   end
 
+  def index?
+    return true
+  end
+
   def update?
     user_is_owner_or_admin?
     # - record: the offer passed to the `authorize` method in controller
@@ -30,6 +34,6 @@ class GameSessionPolicy < ApplicationPolicy
   private
 
   def user_is_owner_or_admin?
-    @user == record.user || user.admin
+    user == record.user || user.admin
   end
 end

@@ -7,13 +7,13 @@
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">My Game Lists</h3>
-    <%= link_to 'Create a Game list', new_game_list_path, class: 'btn btn-flat' %>
+    <%= link_to 'Create a Game list', new_games_list_path, class: 'btn btn-flat' %>
   </div>
   <div class="row">
     <% @games_lists.each do |games_list| %>
       <div class="co-12 colsm-6 col-md-4 mb-3">
         <%= link_to games_list_path(games_list), class:'text-decoration-none' do %>
-          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= games_list.photo.attached? ? cl_image_path(games_list.photo.key) : asset_path('games_list_background.jpg') %>)">
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= games_list.photo.attached? ? cl_image_path(games_list.photo.key) : asset_path('games_list_background.png') %>)">
             <%= games_list.name %>
           </div>
         <% end %>
