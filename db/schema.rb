@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_062412) do
+ActiveRecord::Schema.define(version: 2021_11_27_133753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,10 +92,8 @@ ActiveRecord::Schema.define(version: 2021_11_24_062412) do
     t.string "name"
     t.string "category"
     t.bigint "user_id", null: false
-    t.bigint "game_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["game_id"], name: "index_games_lists_on_game_id"
     t.index ["user_id"], name: "index_games_lists_on_user_id"
   end
 
@@ -148,7 +146,6 @@ ActiveRecord::Schema.define(version: 2021_11_24_062412) do
   add_foreign_key "games_controllers", "platforms"
   add_foreign_key "games_list_games", "games"
   add_foreign_key "games_list_games", "games_lists"
-  add_foreign_key "games_lists", "games"
   add_foreign_key "games_lists", "users"
   add_foreign_key "games_session_lists", "users"
   add_foreign_key "messages", "chatrooms"
