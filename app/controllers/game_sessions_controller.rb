@@ -14,8 +14,9 @@ class GameSessionsController < ApplicationController
     @game_sessions = policy_scope(GameSession)
   end
 
+
   def show
-    @chatroom = @game_session.chatroom
+    set_chatroom
     @message = Message.new
   end
 
@@ -27,11 +28,12 @@ class GameSessionsController < ApplicationController
 
   def create
     @game_session = GameSession.new(game_session_params)
-    @chatroom = Chatroom.create!
     @game_session.user = current_user
-    @game_session.chatroom = @chatroom
     authorize @game_session
     if @game_session.save
+      # criar nova chatroom passando id game session
+      @chatroom = Chatroom.new(game_session_id: @game_session.id, name: @game_session.game.name + ' ' + @game_session.id.to_s)
+      @chatroom.save
       redirect_to game_session_path(@game_session)
     else
       render "new"
@@ -48,6 +50,10 @@ class GameSessionsController < ApplicationController
 
 
   private
+
+  def set_chatroom
+    @chatroom = Chatroom.where(game_session: @game_session.id)
+  end
 
   def set_game_session
     @game_session = GameSession.find(params[:id])

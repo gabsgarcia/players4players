@@ -1,4 +1,4 @@
 class Chatroom < ApplicationRecord
-  has_one :game_session
+  belongs_to :game_session
   has_many :messages
 end
