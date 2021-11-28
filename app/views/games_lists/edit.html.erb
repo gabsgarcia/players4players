@@ -1,0 +1,9 @@
+<div class="container">
+  <strong>Edit Game List</strong>
+
+  <%= render 'form', gameslist: @game_list %>
+
+  <%= link_to games_lists_path do %>
+    <i class="fa fa-history"></i> Back to Lists
+  <% end %>
+</div>

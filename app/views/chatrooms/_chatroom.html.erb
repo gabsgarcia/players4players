@@ -1,18 +1,18 @@
 <div class="chatroom">
   <div class="container">
-    <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-      <% if @chatroom.messages.nil? %>
+    <div id="messages" data-chatroom-id="<%= @game_session.chatroom.name %>">
+      <% if @game_session.chatroom.messages.nil? %>
         <p>Não tem mensagens</p>
       <% else %>
-        <% @chatroom.messages.each do |message| %>
+        <% @game_session.chatroom.messages.each do |message| %>
         <%#= if @message.created_at == DataTime.now %>
           <%= render "messages/message", message: message %>
         <% end %>
       <% end %>
     </div>
     <div class="chat">
-      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-        <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+      <%= simple_form_for [ @game_session.chatroom, @message ], remote: true do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message ##{@game_session.chatroom.name}" %>
       <% end %>
     </div>
   </div>
