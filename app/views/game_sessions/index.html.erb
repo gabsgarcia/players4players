@@ -1,7 +1,9 @@
 <div class="container">
   <% @game_sessions.each do |session| %>
-    <%= link_to game_session_path(session) do %>
-      <i class="fas fa-comments"></i> <%#= chatroom.game_session.name %>
-    <% end %>
+    </ul>
+      <%= link_to game_session_path(session) do %>
+        <i class="fas fa-comments"></i> <%= session.game.name + ' ' + session.date.to_s %>
+      <% end %>
+    <ul>
   <% end %>
 </div>

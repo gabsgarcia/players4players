@@ -11,6 +11,7 @@
         <button type="button" class="btn btn-flat" data-toggle="modal" data-target="#edit_games_list">
           add a game
         </button>
+        <%= link_to 'add a game', edit_games_list_path(@games_list), class: 'btn btn-primary' %>
         <%= link_to 'delete this List', games_list_path(@games_list), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this games_list?' } %>
       </div>
     </div>
@@ -18,11 +19,16 @@
       <% @games_list.games.each do |game| %>
         <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
           <div class="bg-white rounded shadow h-100">
-            <%= image_tag game.thumbnail, alt: game.name, class: 'game-img rounded-top' %>
-            <div class="p-3 rounded-bottom d-flex flex-column">
-              <strong><%= game.name %><%= game.category %> <span class="text-muted font-weight-normal"></span></strong>
-              <small class="text-muted"><%= game.summary %></small>
-            </div>
+            <%= link_to game_path(game) do %>
+              <% if game.thumbnail.present? %>
+                <%= image_tag game.thumbnail, alt: game.name, class: 'game-img rounded-top' %>
+              <% else %>
+                <%= image_tag "night-city.jpg", width: 100, height: 100, crop: :fill %>
+              <% end %>
+              <div class="p-3 rounded-bottom d-flex flex-column">
+                <strong><%= game.name %> <span class="text-muted font-weight-normal"></span></strong>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>

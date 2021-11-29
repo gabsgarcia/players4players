@@ -49,15 +49,15 @@ class GamesListsController < ApplicationController
   end
 
   def edit
-
   end
-
 
   private
 
-
   def games_list_params
-    params.require(:games_list).permit(:name, :category, :photo, :user_id, game_ids: [])
+    params.require(:games_list).permit(:name, :category, :photo, :user_id,
+      game_ids: [],
+      games_list_games_attributes: [:id, :game_ids, :games_list_id, :_destroy,
+      game_atributes: [:id, :name]])
   end
 
   def set_games_list
