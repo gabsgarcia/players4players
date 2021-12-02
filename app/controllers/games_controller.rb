@@ -7,5 +7,12 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @game_session = GameSession.new
+  end
+
+    private
+
+  def verify_policy_scoped
+    return true
   end
 end

@@ -11,7 +11,7 @@
         <button type="button" class="btn btn-flat" data-toggle="modal" data-target="#edit_games_list">
           add a game
         </button>
-        <%= link_to 'add a game', edit_games_list_path(@games_list), class: 'btn btn-primary' %>
+        <%= link_to 'add a game', edit_games_list_path(@games_list), class: 'btn btn-flat' %>
         <%= link_to 'delete this List', games_list_path(@games_list), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this games_list?' } %>
       </div>
     </div>

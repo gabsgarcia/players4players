@@ -5,6 +5,7 @@ class GamesListsController < ApplicationController
 
   def index
     @games_lists = policy_scope(GamesList).order(created_at: :desc)
+    @games_lists = GamesList.where(user: current_user)
   end
 
   def home
