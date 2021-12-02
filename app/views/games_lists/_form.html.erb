@@ -5,7 +5,7 @@
         <%= f.input :name, placeholder: 'My Favorites' %>
         <%= f.input :category %>
         <%= f.input :photo %>
-        <%#= f.association :games, prompt: 'Select a game', input_html: { class: 'select2' } %>
+        <%= f.association :games, prompt: 'Select a game', input_html: { class: 'select2' } %>
         <div id= 'tasks' >
           <%= f.simple_fields_for :games do |builder| %>
             <%= render 'game_fields', f: builder %>
