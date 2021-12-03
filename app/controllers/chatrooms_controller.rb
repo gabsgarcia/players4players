@@ -7,7 +7,7 @@ class ChatroomsController < ApplicationController
   end
 
   def index
-    @chatrooms = pilict_scope(Chatroom)
+    @chatrooms = policy_scope(Chatroom)
   end
 
   def new
