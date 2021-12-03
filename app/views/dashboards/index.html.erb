@@ -3,7 +3,7 @@
 <div class="container mb-5">
   <div class="row my-2">
     <% @games.last(16).each do |game| %>
-      <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
+      <div class="col-12 col-sm-6 mb-4 card-game" data-aos="zoom-in">
         <div class="bg-white rounded shadow h-100">
           <%= link_to game_path(game) do %>
             <% if game.thumbnail.present? %>
