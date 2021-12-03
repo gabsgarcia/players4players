@@ -1,5 +1,4 @@
 class GameSessionsController < ApplicationController
-
   before_action :set_game_session, only: %i[show edit destroy]
 
   def edit

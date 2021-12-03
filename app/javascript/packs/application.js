@@ -25,17 +25,12 @@ require("jquery")
 
 // External imports
 import "bootstrap";
-import "select2"
+
 // Internal imports, e.g:
 import { initChatroomCable } from '../channels/chatroom_channel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+
   initChatroomCable();
-  $('.select2-multiple').select2({ theme: 'bootstrap' });
-  $('.select2-multiple').on('select2:opening select2:closing', function (event) {
-    var $searchfield = $(this).parent().find('.select2-search__field');
-    $searchfield.prop('disabled', true);
   });
-});

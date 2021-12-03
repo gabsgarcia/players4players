@@ -5,12 +5,16 @@ class GameSessionPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    true
+  end
+
   def create?
-    return true
+    true
   end
 
   def index?
-    return true
+    true
   end
 
   def update?

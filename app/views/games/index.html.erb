@@ -1,5 +1,14 @@
 <h1> Games </h1>
-
+<div class="container mb-5">
+  <%= form_tag games_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a Game"
+    %>
+    <%= submit_tag "Search", class: "btn btn-flat" %>
+  <% end %>
+</div>
 <div class="container mb-5">
   <div class="row my-2">
     <% @games.each do |game| %>

@@ -1,11 +1,9 @@
 class GamesListsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-
   before_action :set_games_list, only: %i[show edit update destroy]
 
   def index
-    @games_lists = policy_scope(GamesList).order(created_at: :desc)
-    @games_lists = GamesList.where(user: current_user)
+    @games_lists = policy_scope(GamesList).where(user: current_user).order(created_at: :desc)
   end
 
   def home
@@ -14,10 +12,6 @@ class GamesListsController < ApplicationController
 
   def show
 
-  end
-
-  def my_games_lists
-    @games_lists = games_list.where(user: current_user)
   end
 
   def new
@@ -56,9 +50,7 @@ class GamesListsController < ApplicationController
 
   def games_list_params
     params.require(:games_list).permit(:name, :category, :photo, :user_id,
-      game_ids: [],
-      games_list_games_attributes: [:id, :game_ids, :games_list_id, :_destroy,
-      game_atributes: [:id, :name]])
+                                        game_ids: [],)
   end
 
   def set_games_list
