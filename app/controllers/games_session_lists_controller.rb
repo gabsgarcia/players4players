@@ -10,7 +10,7 @@ class GamesSessionListsController < ApplicationController
   end
 
   def available
-    if @games_session_list = nil
+    if @games_session_list.nil?
       render "new"
     else
       render "destroy"
