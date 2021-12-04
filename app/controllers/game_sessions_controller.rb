@@ -50,7 +50,7 @@ class GameSessionsController < ApplicationController
   private
 
   def set_chatroom
-    @chatroom = Chatroom.where(game_session: @game_session.id)
+    @chatroom = Chatroom.find_by(game_session: @game_session.id)
   end
 
   def set_game_session

@@ -1,9 +1,10 @@
 class ChatroomsController < ApplicationController
   before_action :set_game_session, only: %i[new create]
-  before_action :set_chatroom, only: %i[show]
+
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    authorize @chatroom
   end
 
   def index
