@@ -9,7 +9,7 @@
     <h3 class="mb-0">My Game Lists</h3>
     <%= link_to 'Create a Game list', new_games_list_path, class: 'btn btn-flat' %>
   </div>
-<div class="row">
+  <div class="row">
     <% @games_lists.each do |games_list| %>
       <div class="co-12 colsm-6 col-md-4 mb-3">
         <%= link_to games_list_path(games_list), class:'text-decoration-none' do %>

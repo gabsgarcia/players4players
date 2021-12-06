@@ -13,7 +13,7 @@
   <div class="row my-2">
     <% @games.each do |game| %>
       <div class="col-12 col-sm-6 mb-4 card-game" data-aos="zoom-in">
-        <div class="bg-white rounded shadow h-100">
+        <div class=" rounded shadow h-100">
           <%= link_to game_path(game) do %>
             <% if game.thumbnail.present? %>
               <%= image_tag game.thumbnail, alt: game.name, class: 'game-img rounded-top' %>

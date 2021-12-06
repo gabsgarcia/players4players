@@ -1,12 +1,14 @@
 // Specific CSS for your home-page
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,400,800,900&display=swap');
-$body-color: blue;
+$body-color: #001D3D;
 $poppins: 'Poppins', sans-serif;
+
 body {
+  background-color: #001D3D;
+  font-weight: bold;
   margin: 0;
   padding: 0;
-  background: #333;
   justify-content: center;
 }
 .hero {
@@ -79,12 +81,6 @@ body {
     transform: scaleX(1);
   }
 }
-    body {
-      background-color: #001D3D;
-      margin: auto;
-      text-shadow: 1px 1px 1px gray;
-      font-weight: bold;
-    }
 
 @font-face {
   font-family: neon;

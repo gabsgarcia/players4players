@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #010e1b;
 
 }
 
@@ -14,4 +14,14 @@
 
 .font-catamaran {
   font-weight: 800;
+
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(247, 247, 247, 0.863);
+
+}
+
+.navbar-light .navbar-nav .nav-link :hover{
+  color: rgba(133, 106, 106, 0.863);
 }

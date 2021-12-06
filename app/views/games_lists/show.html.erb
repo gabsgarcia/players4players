@@ -1,6 +1,6 @@
 <div class="position-relative">
   <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @games_list.photo.attached? ? cl_image_path(@games_list.photo.key) : asset_path('games_list_background.png') %>)">
-    <h1><strong><%= @games_list.name %><span class="text-muted font-weight-normal"></span></strong></h1>
+    <h1><strong><%= @games_list.name.upcase %><span class="text-muted font-weight-normal"></span></strong></h1>
   </div>
     <span class="game-tag"><%= pluralize(@games_list.games.size, 'game') %></span>
   </div>
@@ -12,21 +12,22 @@
         <%= link_to 'delete this List', games_list_path(@games_list), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this games_list?' } %>
       </div>
     </div>
-    <div class="row my-2">
+    <div class="row">
       <% @games_list.games.each do |game| %>
-        <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
-          <div class="bg-white rounded shadow h-100">
-            <%= link_to game_path(game) do %>
-              <% if game.thumbnail.present? %>
-                <%= image_tag game.thumbnail, alt: game.name, class: 'game-img rounded-top' %>
-              <% else %>
-                <%= image_tag "night-city.jpg", width: 100, height: 100, crop: :fill %>
-              <% end %>
-              <div class="p-3 rounded-bottom d-flex flex-column">
-                <strong><%= game.name %> <span class="text-muted font-weight-normal"></span></strong>
+        <div class="co-12 colsm-6 col-md-4 mb-3">
+          <%= link_to game_path(game), class:'text-decoration-none' do %>
+            <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= game.thumbnail.present? ? game.thumbnail : asset_path('nigth-city.jpg') %>)">
+              <div class="container">
+                <div class="Title">
+                  <span class="title_hover"><%= game.name %>
+                    <div class="Title__highlight"></div>
+                  </span>
+                  <div class="Title__underline"></div>
+                  <div aria-hidden class="Title__filled"><%= game.name %></div>
+                </div>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>

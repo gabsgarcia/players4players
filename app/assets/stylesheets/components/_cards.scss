@@ -4,8 +4,9 @@
 
 .card-game {
   font-family: "Catamaran", sans-serif;
-  border-radius: 25px;
+  border-radius: 50px;
   color: rgb(29, 3, 3);
+
 }
 .card-category {
   background-size: cover;
@@ -15,7 +16,7 @@
   justify-content: center;
   align-items: center;
   color: rgb(217, 231, 235);
-  font-size: 36px;
+  font-size: 16px;
   font-weight: bolder;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -26,18 +27,11 @@
   max-height: 400px;
 }
 
-.cards {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  padding: 16px;
-}
-
 .card {
   color: rgba(50, 22, 150, 0.829);
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
+  border: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
@@ -50,40 +44,40 @@
 
 .card-title {
   color: rgba(50, 22, 150, 0.829);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
-  .cards {
+  .card {
     grid-template-columns: 1fr;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  .cards {
+  .card {
     grid-template-columns: 1fr;
   }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .cards {
+  .card {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  .cards {
+  .card {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  .cards {
+  .card {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
