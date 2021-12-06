@@ -28,15 +28,16 @@
 }
 
 .card {
-  color: rgba(50, 22, 150, 0.829);
+  color: rgb(29, 3, 3);
   font-size: 16px;
   text-align: center;
-  border: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  display: flex;
   align-items: center;
-  justify-content: space-around;
+  border: 20px;
+  padding: 50px;
+  border-radius: 20px;
+  border-color: gray;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  justify-content: center;
   font-weight: bolder;
 
 }
