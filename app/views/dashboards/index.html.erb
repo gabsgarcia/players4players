@@ -1,22 +1,26 @@
-<h1>Your dashboard <%= current_user.nickname %></h1>
-
-<div class="container mb-5">
-  <div class="row my-2">
-    <% @games.last(16).each do |game| %>
-      <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
-        <div class="bg-white rounded shadow h-100">
-          <%= link_to game_path(game) do %>
-            <% if game.thumbnail.present? %>
-              <%= image_tag game.thumbnail, alt: game.name, class: 'game-img rounded-top' %>
-            <% else %>
-              <%= image_tag "night-city.jpg", width: 100, height: 100, crop: :fill %>
+<div class="container">
+  <div class="container mt-5">
+    <h1>Your dashboard <%= current_user.nickname %></h1>
+  </div>
+  <div class="container mb-5">
+    <div class="row my-2">
+      <% @games.last(15).each do |game| %>
+        <div class="co-12 colsm-6 col-md-4 mb-3">
+            <%= link_to game_path(game), class:'text-decoration-none' do %>
+              <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= game.thumbnail.present? ? game.thumbnail : asset_path('nigth-city.jpg') %>)">
+                <div class="container">
+                  <div class="Title">
+                    <span class="title_hover"><%= game.name %>
+                      <div class="Title__highlight"></div>
+                    </span>
+                    <div class="Title__underline"></div>
+                    <div aria-hidden class="Title__filled"><%= game.name %></div>
+                  </div>
+                </div>
+              </div>
             <% end %>
-            <div class="p-3 rounded-bottom d-flex flex-column">
-              <strong class="card-game"><%= game.name %> <span class="text-muted font-weight-normal"></span></strong>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>
