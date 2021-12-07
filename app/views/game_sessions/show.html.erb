@@ -1,13 +1,10 @@
-<div class="container">
+<div class="container flex-box">
   <div class="info">
-    <h1>#<%= @chatroom.name %></h1>
+    <h1>#<%= @game_session.chatroom.name %></h1>
     <span><%= @game_session.date.strftime("%m/%d/%Y") %></span>
     <span><%= @game_session.time.strftime("%l:%M %p") %></span>
   </div>
-  <div class="description">
-    <p><%= @game_session.description %></p>
-  </div>
-  <div class="chatroom">
-    <%= render '/chatrooms/chatroom', chatroom: @chatroom %>
+    <div class="chatroom">
+    <%= render '/chatrooms/chatroom', chatroom: @game_session.chatroom, members: @members %>
   </div>
 </div>
