@@ -3,9 +3,19 @@
     font-style: normal;
     font-weight: bold;
     color: rgb(5, 8, 44);
+    font-size: 14px;
   }
 
   small {
     color: rgb(38, 4, 66);
+    font-size: 12px;
   }
+
+}
+
+.message-container {
+  p {
+    font-size: 20px;
+  }
+
 }

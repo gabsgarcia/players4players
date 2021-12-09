@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
         @chatroom,
         render_to_string(partial: "message", locals: { message: @message })
       )
-      redirect_to chatroom_path(@chatroom)
+      redirect_to game_session_path(@chatroom.game_session_id)
     else
       render "chatrooms/show"
     end
