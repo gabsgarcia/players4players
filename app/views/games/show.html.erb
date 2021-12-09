@@ -4,12 +4,10 @@
       <div class="card-body">
         <%= image_tag @game.thumbnail, width: 400, height: 300, crop: :fill %>
       </div>
+        <li class="title"><%= @game.name %></li>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= @game.name %></li>
-        <li class="list-group-item">Summary:</li>
-        <li class="list-group-item"><%= @game.summary %></li>
-        <li class="list-group-item">Category:</li>
-        <li class="list-group-item"><%= @game.category %></li>
+        <li class="list-group-item">Summary:<%= @game.summary %></li>
+        <li class="list-group-item">Category:<%= @game.category %></li>
       </ul>
       <div class="card-body">
         <%= render 'game_sessions/form', gamesession: @game_session %>

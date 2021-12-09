@@ -12,7 +12,10 @@ body {
   justify-content: center;
 }
 .hero {
- background: #133A53 url('https://res.cloudinary.com/dpdixfotm/image/upload/v1638588037/development/ts6v568yodr3832gch6fgwl545rt.jpg');
+  background: #133A53 url('https://res.cloudinary.com/dpdixfotm/image/upload/v1638588037/development/ts6v568yodr3832gch6fgwl545rt.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   position: relative;
   display: flex;
   align-items: center;

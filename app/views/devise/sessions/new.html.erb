@@ -1,7 +1,9 @@
-<div class="container">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= image_path "nigth-city.jpg" %>');">
+<div class="container flex-container pt-5 pb-5">
+  <div style="align-self: center">
+    <h2>Log in</h2>
+  </div>
+  <div class="banner formbg">
     <div class="container">
-      <h2>Log in</h2>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
         <%= f.input :email,
@@ -13,8 +15,8 @@
                     input_html: { autocomplete: "current-password" } %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
-      <div class="form-actions btn btn-primary">
-        <%= f.button :submit, "Log in" %>
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", class: "btn-flat" %>
       </div>
       <%= render "devise/shared/links" %>
       <% end %>
