@@ -17,6 +17,8 @@ class GameSessionsController < ApplicationController
   def show
     set_chatroom
     @message = Message.new
+    @games_session_list = GamesSessionList.new
+    @members = GamesSessionList.where(game_session_id: @game_session)
   end
 
   def new
@@ -50,7 +52,8 @@ class GameSessionsController < ApplicationController
   private
 
   def set_chatroom
-    @chatroom = Chatroom.find_by(game_session: @game_session.id)
+    @chatroom = @game_session.chatroom
+    authorize @chatroom
   end
 
   def set_game_session

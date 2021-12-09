@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :profiles, only: %i[new create]
   resources :dashboards, only: %i[index]
   resources :game_sessions, only: %i[show index new create edit destroy]
-  resources :games_session_lists, only: %i[index new create]
+  resources :games_session_lists, only: %i[index new create available destroy]
   patch "games_session_lists/:id/available", to: "games_session_lists#available", as: :available
 
   resources :chatrooms, only: %i[new create show index] do

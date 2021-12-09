@@ -17,3 +17,10 @@
     </div>
   </div>
 </div>
+<% content_for :js do %>
+  <script>
+  document.addEventListener('turbolinks:load', () => {
+    document.getElementById('messages').lastElementChild.scrollIntoView();
+  });
+  </script>
+<% end %>
