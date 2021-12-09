@@ -1,10 +1,4 @@
-class DashboardPolicy
-  attr_reader :user, :record
-
-  def initialize(user, record)
-    @user = user
-    @record = record
-  end
+class DashboardPolicy < ApplicationPolicy
 
   def index?
     true
@@ -34,18 +28,11 @@ class DashboardPolicy
     false
   end
 
-  class Scope
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
+  class Scope < Scope
 
     def resolve
       scope.all
     end
 
-    private
-
-    attr_reader :user, :scope
   end
 end

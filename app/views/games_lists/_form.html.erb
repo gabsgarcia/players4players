@@ -1,22 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+<div class="container flex-container pb-5">
+  <div class="banner formbg">
+    <div class="container">
       <%= simple_form_for @games_list do |f| %>
         <%= f.input :name, placeholder: 'My Favorites' %>
         <%= f.input :category %>
         <%= f.input :photo %>
         <%= f.association :games, prompt: 'Select a game', input_html: { class: 'select2' } %>
-        <div id= 'tasks' >
-          <%= f.simple_fields_for :games do |builder| %>
-            <%= render 'game_fields', f: builder %>
-            <div class= 'links'>
-              <%= link_to_add_association 'Adicionar game', f, :games_list_games, class: 'btn btn-primary mt-3' %>
-            </div>
-          <% end %>
-        </div>
         <%= f.submit class: 'btn btn-flat' %>
       <% end %>
     </div>
   </div>
 </div>
-oi

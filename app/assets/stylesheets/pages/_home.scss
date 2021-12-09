@@ -1,13 +1,157 @@
 // Specific CSS for your home-page
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,400,800,900&display=swap');
+$body-color: #001D3D;
+$poppins: 'Poppins', sans-serif;
+
 body {
   background-color: #001D3D;
-  margin: 0;
-  color: rgb(129, 128, 216) ;
-  text-shadow: 1px 1px 1px gray;
-  font-size: 32px;
   font-weight: bold;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
 }
 
-a {
-  color: rgb(54, 6, 6)
+.sub-title {
+  color: rgb(192, 227, 241);
+  text-shadow: 0 0 5vw #f1acb9;
+  text-align: center;
+}
+
+.hero {
+  background: #133A53 url('https://res.cloudinary.com/dpdixfotm/image/upload/v1638588037/development/ts6v568yodr3832gch6fgwl545rt.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $poppins;
+  height: 100vh;
+  width: 100vw;
+  .overlay {
+    position: absolute;
+    top:0;
+    left:0;
+    right: 0;
+   // background: rgb(19,58,83);
+   // background: linear-gradient(220deg, rgba(19,58,83,0.85) 0%, rgba(208,97,40,0.85) 100%);
+  .content {
+      display: flex;
+      flex-direction:column;
+      justify-content: center;
+      height: 100vh;
+      width: 70vw;
+      margin: auto;
+      transform-origin: left;
+      animation: reveal 1s ease-in-out forwards;
+    h1 {
+      line-height: 0.9;
+      margin-bottom: 0px;
+      color: white;
+    }
+    p {
+      color: white;
+    }
+  }
+  &:before {
+        content: '';
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background: #50075f;
+        z-index: 3;
+        animation: reveal .5s reverse forwards;
+        animation-delay: .5s;
+        transform-origin: left;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background: #133A53;
+        z-index: 2;
+        animation: reveal 0.7s reverse forwards;
+        animation-delay: .7s;
+        transform-origin: left;
+    }
+  }
+}
+@keyframes reveal {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+.neon {
+  font-family: neon;
+  color: #FB4264;
+  font-size: 7vw;
+  line-height: 7vw;
+  text-shadow: 0 0 3vw #F40A35;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flux {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 7vw;
+  line-height: 7vw;
+  text-shadow: 0 0 3vw #2356FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.neon {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+.flux {
+  animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
 }

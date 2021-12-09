@@ -2,7 +2,7 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #1EDD88;
+  background: #4593d3;
   transition: background 0.3s ease;
 }
 
@@ -12,4 +12,19 @@
   border-radius: 4px;
   background: #6a757e;
   transition: background 0.3s ease;
+}
+
+.btn-ghost {
+  color: #e8f7f6;
+  border: 2px solid #e8f7f6;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  opacity: 2;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 0.5;
+
 }
