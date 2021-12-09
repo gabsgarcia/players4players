@@ -1,10 +1,6 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
-        <h3>Create a new Games list</h3>
-         <%= render 'form', gameslist: @game_list %>
-      </div>
-    </div>
+<div class="container flex-container pt-5 pb-5">
+  <div style="align-self: center">
+    <h3 class="dash-title">Create a new Games list</h3>
   </div>
+  <%= render 'form', gameslist: @game_list %>
 </div>
