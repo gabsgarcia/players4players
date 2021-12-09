@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+  <div class="card">
+    <div class="col-xs-12 col-sm-10">
       <%= simple_form_for @game_session do |f| %>
-        <%= f.input :date, as: :date %>
+        <%= f.input :date, as: :date, html5: true %>
         <%= f.input :time %>
         <%= f.input :description %>
-        <%= f.input :game_id, collection: @games %>
-        <%= f.submit class: 'btn btn-primary' %>
+        <%= f.input :game_id, as: :hidden, input_html: {value: params[:id]} %>
+        <%= f.submit class: 'btn btn-flat' %>
       <% end %>
     </div>
   </div>

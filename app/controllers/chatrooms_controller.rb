@@ -6,6 +6,7 @@ class ChatroomsController < ApplicationController
     @game_session = GameSession.find(@chatroom.game_session_id)
     @message = Message.new
     @members = GamesSessionList.where(game_session_id: @game_session.id)
+    authorize @chatroom
   end
 
   def index

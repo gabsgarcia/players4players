@@ -1,8 +1,17 @@
-<%= simple_form_for @profile, url: profiles_path, method: :post do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :nickname %>
-  <%= f.input :age %>
-  <%= f.input :photo %>
-  <%= f.submit 'Complete your registration', class: "btn btn-primary btn-block"%>
-<% end %>
+<div class="container flex-container pt-5 pb-5">
+  <div style="align-self: center">
+    <h2>Complete your registration</h2>
+  </div>
+  <div class="banner formbg">
+    <div class="container">
+      <%= simple_form_for @profile, url: profiles_path, method: :post do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :nickname %>
+        <%= f.input :age %>
+        <%= f.input :photo %>
+        <%= f.submit 'Submit', class: "btn btn-flat btn-block"%>
+      <% end %>
+    </div>
+  </div>
+</div>

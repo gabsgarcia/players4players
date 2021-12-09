@@ -4,3 +4,27 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.formbg {
+  background: #133A53;
+}
+
+body {
+  background-image: url("https://res.cloudinary.com/dpdixfotm/image/upload/v1638824471/development/rvpdn6iwa7htsfwkxpc2j4ke5uov.gif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+}
+
+.ai {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

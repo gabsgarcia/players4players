@@ -1,5 +1,4 @@
 class GameSessionsController < ApplicationController
-
   before_action :set_game_session, only: %i[show edit destroy]
 
   def edit
@@ -25,7 +24,6 @@ class GameSessionsController < ApplicationController
   def new
     @game_session = GameSession.new
     authorize @game_session
-    @games = Game.all
   end
 
   def create
