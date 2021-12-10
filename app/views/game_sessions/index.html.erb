@@ -1,9 +1,25 @@
 <div class="container">
-  <% @game_sessions.each do |session| %>
-    </ul>
-      <%= link_to game_session_path(session) do %>
-        <i class="fas fa-comments"></i> <%= session.game.name + ' ' + session.date.to_s %>
+  <div class="text-center text-white">
+    <h1 class="dash-title">Join or create your own Game Session</h1>
+    <h3 class="typed-js">Join a Session to find players all over the world!</h3>
+  </div>
+  <div class="container d-flex justify-content-center">
+    <div class="row">
+      <% @game_sessions.each do |session| %>
+        <div class="col">
+          <div class="card-product mt-2 mb-2">
+            <img src="https://res.cloudinary.com/dpdixfotm/image/upload/v1639090358/development/otcwaxnhm5uvs4ga1nv0nu9i9rtw.png"/>
+            <div class="card-product-infos">
+              <h2>
+                <%= link_to game_session_path(session) do %>
+                  <%= session.game.name + ' ' + session.date.to_s %>
+                <% end %>
+              </h2>
+              <p><%= session.date.to_s %></p>
+            </div>
+          </div>
+        </div>
       <% end %>
-    <ul>
-  <% end %>
+    </div>
+  </div>
 </div>
