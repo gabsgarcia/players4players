@@ -1,6 +1,6 @@
 <div class="position-relative">
   <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @games_list.photo.attached? ? cl_image_path(@games_list.photo.key) : asset_path('games_list_background.png') %>)">
-    <h1 class="dash-title"><strong><%= @games_list.name.upcase %><span class="text-muted font-weight-normal"></span></strong></h1>
+    <h1 class="list-title"><strong><%= @games_list.name.upcase %><span class="text-muted font-weight-normal"></span></strong></h1>
   </div>
     <span class="game-tag"><%= pluralize(@games_list.games.size, 'game') %></span>
   </div>

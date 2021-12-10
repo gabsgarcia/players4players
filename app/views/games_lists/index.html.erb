@@ -1,13 +1,13 @@
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-white">
+<div class="cover mt-5 bt-5 d-flex align-items-center justify-content-center">
+  <div class="text-center">
     <h1 class="dash-title">Save all the Games you want</h1>
     <h3 class="typed-js"></h3>
   </div>
 </div>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="dash-title">My Game Lists</h3>
-    <%= link_to 'Create a Game list', new_games_list_path, class: 'btn btn-flat' %>
+    <h3 class="dash-title"><%= current_user.nickname.capitalize %>'s Games Lists</h3>
+    <%= link_to 'Create a Games list', new_games_list_path, class: 'btn btn-flat' %>
   </div>
   <div class="row">
     <% @games_lists.each do |games_list| %>

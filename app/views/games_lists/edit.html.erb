@@ -1,9 +1,6 @@
-<div class="container">
-  <strong class="dash-title">Edit Games List</strong>
-
+<div class="container flex-container pt-5 pb-5">
+  <div style="align-self: center">
+    <h2>Edit this Games List</h2>
+  </div>
   <%= render 'form', gameslist: @games_list %>
-
-  <%= link_to games_lists_path do %>
-    <i class="fa fa-history"></i> Back to Lists
-  <% end %>
 </div>
