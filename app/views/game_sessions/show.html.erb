@@ -6,4 +6,9 @@
     <p><%= @game_session.description %></p>
   </div>
   <%= render '/chatrooms/chatroom', chatroom: @game_session.chatroom, members: @members %>
-</div>
+
+  <div>
+    <%= link_to 'edit', edit_game_session_path(@game_session), class: 'btn btn-flat' %>
+    <%= link_to 'Delete ', game_session_path(@game_session), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this Games Session?' } %>
+  </div>
+ </div>

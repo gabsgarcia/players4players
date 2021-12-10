@@ -4,7 +4,7 @@ class GameSession < ApplicationRecord
 
   has_many :games_controllers
   has_many :games_session_list
-  has_one :chatroom
+  has_one :chatroom, dependent: :destroy
 
   validates :date, :time, :description, presence: true
 end

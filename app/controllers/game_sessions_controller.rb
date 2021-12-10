@@ -2,7 +2,7 @@ class GameSessionsController < ApplicationController
   before_action :set_game_session, only: %i[show edit destroy]
 
   def edit
-    @game_session = GameSession.find(params[:id])
+
   end
 
   def update
@@ -64,4 +64,5 @@ class GameSessionsController < ApplicationController
   def game_session_params
     params.require(:game_session).permit(:date, :time, :description, :game_id)
   end
+
 end
