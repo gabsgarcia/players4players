@@ -32,7 +32,7 @@ class GamesSessionListsController < ApplicationController
   #   end
   # end
 
-  private
+  # private
 
   # def set_games_session_list
   #   @games_session_list = GamesSessionList.find(params[:id])
