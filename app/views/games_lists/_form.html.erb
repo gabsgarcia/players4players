@@ -8,6 +8,9 @@
         <%= f.association :games, input_html: { class: 'select2' } %>
         <%= f.submit class: 'btn btn-flat' %>
       <% end %>
+      <%= link_to games_lists_path do %>
+        <i class="fa fa-history"></i> Back to Lists
+      <% end %>
     </div>
   </div>
 </div>
