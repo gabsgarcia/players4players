@@ -5,12 +5,6 @@
     <span><%= @game_session.time.strftime("%l:%M %p") %></span>
     <p><%= @game_session.description %></p>
   </div>
-  <div class="members d-flex flex-column">
-    <% @members.each do |member| %>
-      <p><%= member.user.nickmane %></p>
-    <% end %>
-  </div>
-
   <div class="container">
     <%= render 'chatroom', chatroom: @chatroom %>
   </div>

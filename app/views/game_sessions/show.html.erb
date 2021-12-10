@@ -3,8 +3,7 @@
     <h1 class="dash-title">#<%= @game_session.chatroom.name %></h1>
     <span class='font-tt'><%= @game_session.date.strftime("%m/%d/%Y") %></span>
     <span class='font-tt'><%= @game_session.time.strftime("%l:%M %p") %></span>
+    <p><%= @game_session.description %></p>
   </div>
-    <div class="chatroom">
-    <%= render '/chatrooms/chatroom', chatroom: @game_session.chatroom, members: @members %>
-  </div>
+  <%= render '/chatrooms/chatroom', chatroom: @game_session.chatroom, members: @members %>
 </div>
