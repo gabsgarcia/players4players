@@ -8,3 +8,25 @@
 .game-info {
   color: #595959;
 }
+
+.form-search {
+  display: flex;
+}
+
+.form-control-search {
+  width: 90%;
+  margin-right: 20px;
+}
+
+.show-game {
+  background-color: white;
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.form-game {
+  display: flex;
+  justify-content: center;
+}

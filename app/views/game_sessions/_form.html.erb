@@ -1,13 +1,11 @@
-<div class="container">
-  <div class="card">
-    <div class="col-xs-10 col-sm-8">
-      <%= simple_form_for @game_session do |f| %>
-        <%= f.input :date, as: :date, html5: true %>
-        <%= f.input :time %>
-        <%= f.input :description %>
-        <%= f.input :game_id, as: :hidden, input_html: {value: params[:id]} %>
-        <%= f.submit class: 'btn btn-flat' %>
-      <% end %>
-    </div>
+<div class="card mt-3">
+  <div>
+    <%= simple_form_for @game_session do |f| %>
+      <%= f.input :date, as: :date, html5: true %>
+      <%= f.input :time %>
+      <%= f.input :description, class:"w-100 m-0" %>
+      <%= f.input :game_id, as: :hidden, input_html: {value: params[:id]} %>
+      <%= f.submit class: 'btn btn-flat mb-2' %>
+    <% end %>
   </div>
 </div>

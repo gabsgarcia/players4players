@@ -1,19 +1,18 @@
 <div class="container">
-  <div class="card mt-2 mb-2">
-    <div class="col-xs-12 col-sm-8">
-      <div class="card-body">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-8 col-lg-6">
+      <div class="show-game">
         <%= image_tag @game.thumbnail, width: 400, height: 300, crop: :fill %>
-      </div>
         <h3 class="dash-title"><%= @game.name %></h3>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Summary: </li>
-          <div class="game-info mt-1 mb-1"><%= @game.summary %></div>
-        <li class="list-group-item">Category: </li>
-          <div class="game-info mt-1 mb-1"><%= @game.category %></div>
-      </ul>
-      <div class="card-body">
-        <%= render 'game_sessions/form', gamesession: @game_session %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Summary: </li>
+            <div class="game-info mt-1 mb-1"><%= @game.summary %></div>
+          <li class="list-group-item">Category: </li>
+            <div class="game-info mt-1 mb-1"><%= @game.category %></div>
+        </ul>
+        <div class="form-game">
+          <%= render 'game_sessions/form', gamesession: @game_session %>
+        </div>
       </div>
     </div>
   </div>
-</div>
