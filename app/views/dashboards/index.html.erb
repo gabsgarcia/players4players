@@ -1,13 +1,13 @@
 <div class="container">
   <div class="container mt-5">
-    <h1>Your dashboard <%= current_user.nickname %></h1>
+    <h1 class="dash-title">Your dashboard <%= current_user.nickname %></h1>
   </div>
   <div class="container mb-5">
     <div class="row my-2">
       <% @games.last(15).each do |game| %>
         <div class="co-12 colsm-6 col-md-4 mb-3">
             <%= link_to game_path(game), class:'text-decoration-none' do %>
-              <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= game.thumbnail.present? ? game.thumbnail : asset_path('nigth-city.jpg') %>)">
+              <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url(<%= game.thumbnail.present? ? game.thumbnail : asset_path('nigth-city.jpg') %>)">
                 <div class="container">
                   <div class="Title">
                     <span class="title_hover"><%= game.name %>

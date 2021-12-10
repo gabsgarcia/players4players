@@ -1,14 +1,9 @@
-<div class="container flex-box">
+<div class="container flex-box mt-2">
   <div class="info">
-    <h1>#<%= @game_session.chatroom.name %></h1>
-<<<<<<< HEAD
-    <span><%= @game_session.date.strftime("%m/%d/%Y") %></span>
-    <span><%= @game_session.time.strftime("%l:%M %p") %></span>
-    <p><%= @game_session.description %></p>
-=======
+    <h1 class="dash-title">#<%= @game_session.chatroom.name %></h1>
     <span class='font-tt'><%= @game_session.date.strftime("%m/%d/%Y") %></span>
     <span class='font-tt'><%= @game_session.time.strftime("%l:%M %p") %></span>
->>>>>>> 0e2ee2df0ac8762acd848b92fc31fd72f338540e
+    <p><%= @game_session.description %></p>
   </div>
   <%= render '/chatrooms/chatroom', chatroom: @game_session.chatroom, members: @members %>
 </div>

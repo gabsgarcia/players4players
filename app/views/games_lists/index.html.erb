@@ -1,19 +1,19 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-white">
-    <h1>Save any kind of Games</h1>
+    <h1 class="dash-title">Save all the Games you want</h1>
     <h3 class="typed-js"></h3>
   </div>
 </div>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">My Game Lists</h3>
+    <h3 class="dash-title">My Game Lists</h3>
     <%= link_to 'Create a Game list', new_games_list_path, class: 'btn btn-flat' %>
   </div>
   <div class="row">
     <% @games_lists.each do |games_list| %>
       <div class="co-12 colsm-6 col-md-4 mb-3">
         <%= link_to games_list_path(games_list), class:'text-decoration-none' do %>
-          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= games_list.photo.attached? ? cl_image_path(games_list.photo.key) : asset_path('games_list_background.png') %>)">
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url(<%= games_list.photo.attached? ? cl_image_path(games_list.photo.key) : asset_path('games_list_background.png') %>)">
             <div class="container">
               <div class="Title">
                 <span class="title_hover"><%= games_list.name %>
