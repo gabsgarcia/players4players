@@ -7,5 +7,8 @@
       <%= f.input :game_id, as: :hidden, input_html: {value: params[:id]} %>
       <%= f.submit class: 'btn btn-flat mb-2' %>
     <% end %>
+    <%= link_to game_sessions_path do %>
+      <i class="fa fa-history"></i> Back to Game Sessions
+    <% end %>
   </div>
 </div>

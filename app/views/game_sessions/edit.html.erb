@@ -1,9 +1,6 @@
-<div class="container">
-  <strong>Edit your Game Session</strong>
-
+<div class="container flex-container pt-5 pb-5">
+  <div style="align-self: center">
+    <h2>Edit this Game Session</h2>
+  </div>
   <%= render 'form', gamesession: @game_session %>
-
-  <%= link_to game_sessions_path do %>
-    <i class="fa fa-history"></i> Back to Game Sessions
-  <% end %>
 </div>
