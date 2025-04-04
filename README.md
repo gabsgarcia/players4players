@@ -1,24 +1,105 @@
-Players4Players
+# Players4Players 🎮
 
-Final Project for the Le Wagon Bootcamp Full Stack Web Developer.
+## About the Project
 
-A Game platform for players that don't have much free time, to find other players in the same situation, but want to have company or CoOp to play.
+Players4Players is a platform designed for gamers with limited free time who still want to enjoy multiplayer experiences. The platform connects players in similar situations, allowing them to find companions for co-op gameplay and organize gaming sessions that fit their schedules.
 
-Game platform where you can:
+### Built With
+* Ruby on Rails
+* JavaScript/Stimulus
+* PostgreSQL
+* Bootstrap
+* Action Cable for real-time chat
+* Cloudinary for image hosting
+* FreeToGame API for game data
 
- - have a data base of free online games where the players can search a game they would like to play;
- - create game's list with save your favorite games or save each diferent category;
- - create a game session with the game, date and time they want, which have a chat that other players can join and work the details;
- - find already existing game sessions to join
+## Features
 
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+### 📚 Game Library
+- Browse a comprehensive database of free online games 
+- Search games by name, category or platform
+- View detailed game information including summaries, developers, and release dates
 
-Minimal template plus a Devise install with a generated User model.
-rails new \
-  --database postgresql \
-  -m https://raw.githubusercontent.com/lewagon/rails-templates/master/devise.rb \
-  CHANGE_THIS_TO_YOUR_RAILS_APP_NAME
+### 📋 Game Lists
+- Create personalized game collections
+- Organize games by category, preference, or any criteria you choose
+- Filter games by category when creating lists
 
-Local testes with Rails server using http://localhost:3000/
+### 🎲 Game Sessions
+- Schedule gaming sessions with specific games, dates, and times
+- Join existing sessions created by other players
+- Each session includes a real-time chat for coordination and planning
 
-Online on Heroku https://players4players.herokuapp.com/
+### 💬 Real-time Chat
+- Integrated chat system in each game session
+- Communicate with other players to coordinate gameplay
+- Discuss strategies and share gaming tips
+
+### 👤 User Profiles
+- Customize your player profile
+- View your game collections and scheduled sessions
+- Track your ratings and reviews
+
+### ⭐ Rating System
+- Rate games you've played
+- Read reviews from other players
+- Find highly rated games to try next
+
+## Getting Started
+
+### Prerequisites
+- Ruby 3.0.0 or higher
+- Rails 6.1 or higher
+- PostgreSQL 13.0 or higher
+- Node.js & Yarn
+
+### Installation
+
+1. Clone the repository
+   ```sh
+   git clone https://github.com/gabsgarcia/players4players.git
+   ```
+
+2. Install required gems
+   ```sh
+   bundle install
+   ```
+
+3. Install JavaScript dependencies
+   ```sh
+   yarn install
+   ```
+
+4. Setup the database
+   ```sh
+   rails db:create db:migrate db:seed
+   ```
+
+5. Start the Rails server
+   ```sh
+   rails s
+   ```
+
+6. Visit `http://localhost:3000` in your browser
+
+## Development Process
+
+This project was developed as the final project for the Le Wagon Bootcamp Full Stack Web Developer program. It was created using the Le Wagon Rails template with Devise for authentication.
+
+## Future Enhancements
+
+- Game session matchmaking based on player skills
+- Integration with gaming platforms for automatic session setup
+- In-app notifications for upcoming gaming sessions
+- Friend recommendations based on gaming preferences
+- Mobile app version
+
+## Contributors
+
+- [Your Name](https://github.com/yourusername) - Full Stack Developer
+
+## Acknowledgements
+
+- [Le Wagon Coding Bootcamp](https://www.lewagon.com) for providing the education and support
+- [FreeToGame API](https://www.freetogame.com/api-doc) for the game data
+- [Font Awesome](https://fontawesome.com) for the icons
