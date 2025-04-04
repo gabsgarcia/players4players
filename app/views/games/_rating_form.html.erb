@@ -1,0 +1,79 @@
+<div class="card mt-3">
+  <div class="card-header">
+    <h5>User Reviews (<%= @game.ratings.count %>)</h5>
+    <% if @game.ratings.count > 0 %>
+      <div class="d-flex align-items-center">
+        <strong class="mr-2">Average Rating:</strong>
+        <span><%= @game.average_rating %> / 5</span>
+        <div class="ml-2">
+          <% @game.average_rating.floor.times do %>
+            <i class="fas fa-star text-warning"></i>
+          <% end %>
+          <% (5 - @game.average_rating.floor).times do %>
+            <i class="far fa-star text-warning"></i>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <p>No ratings yet. Be the first to rate this game!</p>
+    <% end %>
+  </div>
+
+  <div class="card-body">
+    <% if current_user.present? && !Rating.exists?(user: current_user, game: @game) %>
+      <div class="alert alert-info mb-4">
+        <p>You haven't rated this game yet!</p>
+        <button class="btn btn-primary" data-toggle="collapse" data-target="#rating-form-section">
+          Add Your Rating
+        </button>
+      </div>
+
+      <div id="rating-form-section" class="collapse mb-4">
+        <%= simple_form_for [@game, Rating.new] do |f| %>
+          <div class="form-group">
+            <%= f.label :score, "Your Rating (1-5)" %>
+            <%= f.select :score, options_for_select((1..5).map {|i| ["#{i} stars", i]}), {}, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :comment, "Your Review (optional)" %>
+            <%= f.text_area :comment, class: "form-control" %>
+          </div>
+          <%= f.submit "Submit Rating", class: "btn btn-flat" %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @game.ratings.exists? %>
+      <h6><%= pluralize(@game.ratings.count, 'Review') %></h6>
+      <% @game.ratings.order(created_at: :desc).each do |rating| %>
+        <div class="review-card mb-3 p-3 border-bottom">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <strong><%= rating.user.nickname %></strong>
+              <small class="text-muted ml-2">
+                <% if rating.created_at.present? %>
+                  <%= rating.created_at.strftime("%b %d, %Y") %>
+                <% end %>
+              </small>
+            </div>
+            <div>
+              <% rating.score.times do %>
+                <i class="fas fa-star text-warning"></i>
+              <% end %>
+              <% (5 - rating.score).times do %>
+                <i class="far fa-star text-warning"></i>
+              <% end %>
+            </div>
+          </div>
+          <% if rating.comment.present? %>
+            <p class="mt-2 mb-0"><%= rating.comment %></p>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="text-center py-3">
+        <p class="text-muted">No reviews yet. Be the first to share your thoughts!</p>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -24,9 +24,44 @@
   padding: 30px;
   border-radius: 20px;
   text-align: center;
+  /* Added to make the width consistent */
+  width: 100%;
 }
 
 .form-game {
   display: flex;
   justify-content: center;
+}
+
+/* Add these new styles */
+.rating-stars {
+  display: inline-flex;
+  flex-wrap: nowrap;
+}
+
+.game-info-item {
+  margin-bottom: 15px;
+  text-align: left;
+  padding: 5px 0;
+}
+
+.game-info-container {
+  margin-top: 20px;
+}
+
+/* Fix for the card to match the show-game width */
+.show-game .card {
+  width: 100% !important;
+  margin: 0 !important;
+  border-radius: 20px;
+}
+
+/* Ensure the rating section has no extra padding */
+.show-game.p-0 {
+  padding: 0 !important;
+}
+
+/* Make sure the card body has proper padding */
+.show-game .card-body {
+  padding: 20px;
 }

@@ -5,3 +5,6 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import GameFilterController from "./game_filter_controller"
+application.register("game-filter", GameFilterController)

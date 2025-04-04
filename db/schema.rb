@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_04_162008) do
+ActiveRecord::Schema.define(version: 2025_04_04_093330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,11 @@ ActiveRecord::Schema.define(version: 2021_12_04_162008) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "thumbnail"
+    t.string "developer"
+    t.string "publisher"
+    t.string "release_date"
+    t.string "game_url"
+    t.string "freetogame_profile_url"
     t.index ["platform_id"], name: "index_games_on_platform_id"
   end
 
@@ -123,6 +128,17 @@ ActiveRecord::Schema.define(version: 2021_12_04_162008) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.integer "score"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_ratings_on_game_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -153,4 +169,6 @@ ActiveRecord::Schema.define(version: 2021_12_04_162008) do
   add_foreign_key "games_session_lists", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "ratings", "games"
+  add_foreign_key "ratings", "users"
 end

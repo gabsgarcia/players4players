@@ -2,10 +2,35 @@
   <div class="banner formbg">
     <div class="container">
       <%= simple_form_for @games_list do |f| %>
-        <%= f.input :name %>
-        <%= f.input :category %>
-        <%= f.input :photo %>
-        <%= f.association :games, input_html: { class: 'select2' } %>
+        <div data-controller="game-filter">
+          <%= f.input :name %>
+
+          <!-- Game Category Dropdown -->
+          <%= f.input :category,
+                      collection: Game.pluck(:category).uniq.sort,
+                      include_blank: "Select a game category",
+                      input_html: {
+                        data: {
+                          game_filter_target: "category",
+                          action: "change->game-filter#filterGames"
+                        }
+                      } %>
+
+          <%= f.input :photo %>
+
+          <!-- Games dropdown that will be filtered by category -->
+          <div>
+            <%= f.association :games,
+                            label: "Select Games",
+                            collection: f.object.category.present? ? Game.where(category: f.object.category) : Game.all,
+                            input_html: {
+                              class: 'select2',
+                              data: { game_filter_target: "games" },
+                              multiple: true
+                            } %>
+          </div>
+        </div>
+
         <%= f.submit class: 'btn btn-flat' %>
       <% end %>
       <%= link_to games_lists_path do %>
@@ -14,3 +39,10 @@
     </div>
   </div>
 </div>
+
+<!-- Add debugging console to help troubleshoot -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log("Form loaded, select2 elements:", $('.select2').length);
+  });
+</script>
